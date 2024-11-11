@@ -1,0 +1,13 @@
+*.pyc
+*__pycache__/
+.vscode
+*.log
+data_fs/
+*.coverage
+*htmlcov/
+/alertmapping/data_fs/
+alertmapping/models/*
+.idea
+.idea/sonarlint/*
+aiops_alert_utils
+aiops_ticket_utils
