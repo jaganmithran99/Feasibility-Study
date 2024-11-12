@@ -1,6 +1,7 @@
 # Use an official Ubuntu base image
 FROM ubuntu:20.04
 
+COPY . .
 # Set environment variable to suppress interactive prompts
 ENV DEBIAN_FRONTEND=noninteractive
 
