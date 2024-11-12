@@ -1,3 +1,5 @@
 pycurl
 urllib3
 selenium
+requests
+cryptography
