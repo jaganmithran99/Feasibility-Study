@@ -20,7 +20,7 @@ RUN wget https://bootstrap.pypa.io/get-pip.py && \
     rm get-pip.py
 
 # Install dbus to avoid the bus error (optional)
-RUN apt-get install -y dbus-x11
+#RUN apt-get install -y dbus-x11
 
 
 # Install Google Chrome
