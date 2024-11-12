@@ -6,7 +6,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 # Install necessary dependencies, tools, and Python 3.10
 RUN apt-get update && \
-    apt-get install -y software-properties-common wget gnupg unzip xvfb && \
+    apt-get install -y software-properties-common wget gnupg unzip xvfb dbus && \
     add-apt-repository -y ppa:deadsnakes/ppa && \
     apt-get update && \
     apt-get install -y python3.10 python3.10-venv python3.10-distutils && \
