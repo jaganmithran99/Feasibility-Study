@@ -6,7 +6,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 # Install necessary dependencies, tools, and Python 3.10
 RUN apt-get update && \
-    apt-get install -y software-properties-common wget gnupg && \
+    apt-get install -y software-properties-common wget gnupg unzip xvfb && \
     add-apt-repository -y ppa:deadsnakes/ppa && \
     apt-get update && \
     apt-get install -y python3.10 python3.10-venv python3.10-distutils && \
@@ -18,6 +18,10 @@ RUN apt-get update && \
 RUN wget https://bootstrap.pypa.io/get-pip.py && \
     python3.10 get-pip.py && \
     rm get-pip.py
+
+# Install dbus to avoid the bus error (optional)
+RUN apt-get install -y dbus-x11
+
 
 # Install Google Chrome
 #RUN wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | apt-key add - && \
@@ -53,7 +57,7 @@ RUN pip install selenium
 #CMD ["python3.10"]
 
 # Ensure Chrome runs without sandbox
-ENTRYPOINT ["google-chrome", "--no-sandbox", "--disable-gpu", "--disable-extensions"]
-
+#ENTRYPOINT ["google-chrome", "--no-sandbox", "--disable-gpu", "--disable-extensions"]
+ENTRYPOINT ["xvfb-run", "--auto-servernum", "--server-args='-screen 0 1920x1080x24'", "google-chrome", "--no-sandbox", "--disable-gpu", "--headless"]
 
 #CMD ["sleep","3600"]
