@@ -52,8 +52,8 @@ ENV CHROME_OPTIONS="--no-sandbox --disable-dev-shm-usage --headless"
 #RUN python3.10 --version && google-chrome --version && chromedriver --version
 
 # Optional: Install Selenium or other packages
-RUN pip install selenium
-
+#RUN pip install selenium
+RUN pip3 install --trusted-host pypi.org --trusted-host files.pythonhosted.org -r requirements.txt
 # Set default command (you can change this based on your needs)
 #CMD ["python3.10"]
 
