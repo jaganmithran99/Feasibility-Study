@@ -53,6 +53,7 @@ RUN pip install selenium
 #CMD ["python3.10"]
 
 # Ensure Chrome runs without sandbox
-ENTRYPOINT [ "google-chrome", "--no-sandbox", "--headless", "--disable-gpu", "--remote-debugging-port=9222" ]
+ENTRYPOINT ["google-chrome", "--no-sandbox", "--disable-gpu", "--disable-extensions"]
+
 
 #CMD ["sleep","3600"]
