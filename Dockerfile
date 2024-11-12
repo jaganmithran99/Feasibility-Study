@@ -44,10 +44,13 @@ ENV CHROME_BIN="/usr/bin/google-chrome"
 ENV CHROME_OPTIONS="--no-sandbox --disable-dev-shm-usage --headless"
 
 # Verify installations
-RUN python3.10 --version && google-chrome --version && chromedriver --version
+#RUN python3.10 --version && google-chrome --version && chromedriver --version
 
 # Optional: Install Selenium or other packages
 RUN pip install selenium
 
 # Set default command (you can change this based on your needs)
-CMD ["python3.10"]
+#CMD ["python3.10"]
+
+# Ensure Chrome runs without sandbox
+ENTRYPOINT [ "google-chrome", "--no-sandbox", "--headless", "--disable-gpu", "--remote-debugging-port=9222" ]
